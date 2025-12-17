@@ -1,4 +1,4 @@
-package com.porfirio.mycomerce.domain.user.platform.credential;
+package com.porfirio.mycomerce.domain.platform.credential;
 
 import lombok.Getter;
 
@@ -7,24 +7,23 @@ public class CredentialId
 {
     private final Integer value;
 
-    private CredentialId(Integer value)
+    public CredentialId(Integer value)
     {
         this.value = value;
+        this.validate();
     }
 
-    public static CredentialId create(Integer value)
+    private void validate()
     {
-        if(value == null)
+        if(this.value == null)
         {
-            throw new IllegalArgumentException("The UserCredentialId must not be null");
+            throw new IllegalArgumentException("The UserCredentialId must not be NULL");
         }
 
-        if(value < 1)
+        if(this.value < 1)
         {
             throw new IllegalArgumentException("The UserCredentialId must be greater than 0");
         }
-
-        return new CredentialId(value);
     }
 
     @Override

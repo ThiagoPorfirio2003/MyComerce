@@ -1,7 +1,10 @@
-package com.porfirio.mycomerce.domain.user.personaldata;
+package com.porfirio.mycomerce.domain.client.user.personaldata;
+
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Getter
 public class UserPersonalData
 {
     private final int id;
@@ -26,29 +29,5 @@ public class UserPersonalData
         this.surname = surname;
         this.birthDate = birthDate;
         this.DNI = DNI;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public String getSurname() {
-        return this.surname;
-    }
-
-    @Override
-    public LocalDate getBirthDate() {
-        return this.birthDate;
-    }
-
-    @Override
-    public String getDNI() {
-        return this.DNI;
     }
 }
