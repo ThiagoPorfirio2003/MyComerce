@@ -1,6 +1,6 @@
 package com.porfirio.mycomerce.application;
 
-import com.porfirio.mycomerce.domain.client.user.personaldata.UserRole;
+import com.porfirio.mycomerce.domain.client.user.profile.UserRole;
 
 import java.time.LocalDate;
 

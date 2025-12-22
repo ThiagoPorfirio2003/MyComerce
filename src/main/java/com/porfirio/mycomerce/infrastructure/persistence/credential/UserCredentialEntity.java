@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "user_credentials")
 @Getter
@@ -24,16 +26,18 @@ public class UserCredentialEntity
     private String email;
     private String password;
 
+    @Column(name = "created_at", updatable = false, insertable = false)
+    private LocalDate createdAt;
+
     public static UserCredentialEntity fromDomainToSave(UserCredential credential)
     {
-        return new UserCredentialEntity(null, credential.getEmail().getValue(), credential.getPassword());
+        return new UserCredentialEntity(null, credential.getEmail().getValue(), credential.getPassword(), null);
     }
 
     public static UserCredentialEntity fromDomainToUpdate(UserCredential credential)
     {
-        return new UserCredentialEntity(credential.getId(), credential.getEmail().getValue(), credential.getPassword());
+        return new UserCredentialEntity(credential.getId(), credential.getEmail().getValue(), credential.getPassword(), null);
     }
-
 
     public UserCredential toDomain()
     {
