@@ -1,8 +1,9 @@
-package com.porfirio.mycomerce.domain.client.product;
+package com.porfirio.mycomerce.domain.decraped;
 
 import com.porfirio.mycomerce.domain.exceptions.DomainException;
 import lombok.Getter;
 
+/*
 @Getter
 public class InvalidStockOperationException extends DomainException
 {
@@ -14,3 +15,4 @@ public class InvalidStockOperationException extends DomainException
         this.invalidAmount = invalidAmount;
     }
 }
+*/

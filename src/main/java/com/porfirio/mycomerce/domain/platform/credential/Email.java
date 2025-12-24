@@ -1,65 +1,56 @@
 package com.porfirio.mycomerce.domain.platform.credential;
 
+import com.porfirio.mycomerce.domain.common.MyString;
+import com.porfirio.mycomerce.domain.common.MyStringErrors;
+import com.porfirio.mycomerce.domain.exceptions.DomainException;
 import lombok.Getter;
 
-import java.util.Objects;
-
 @Getter
-public class Email
+public class Email extends MyString
 {
-    private final String value;
-
     public Email(String value)
     {
-        this.value = value;
+        super(value);
     }
 
-    private void validate()
-    {
+    @Override
+    protected int getMinLength() {
+        return 6;
+    }
 
+    @Override
+    protected int getMaxLength() {
+        return 256;
+    }
+
+    @Override
+    protected String getConceptName() {
+        return "EMAIL";
+    }
+
+    @Override
+    protected void validateFormat()
+    {
+        int at = this.getValue().indexOf("@");
+
+        //Valido que solo haya un @, ni mas ni menos
+        if(at == -1 || (at != this.getValue().lastIndexOf("@")))
+            throw MyString.generateInvalidFormatException(this.getConceptName(), "The Email must contain exactly one @");
     }
 
     @Override
     public boolean equals(Object obj) {
         return this == obj ||
                 (obj instanceof Email &&
-                        this.value.equals(((Email) obj).value));
+                        this.getValue().equals(((Email) obj).getValue()));
     }
 
     @Override
     public int hashCode() {
-        return this.value.hashCode();
+        return this.getValue().hashCode();
     }
 
-    private static void validate(String email)
-    {
-        if(email == null)
-        {
-            throw new IllegalArgumentException("The Email must not be NULL");
-        }
-
-        email = email.trim();
-
-        if(email.isBlank())
-        {
-            throw new IllegalArgumentException("The Email must not be blank");
-        }
-
-        //Valido que la  6 <= caracteres <= 256
-        if(email.length() < 6 || email.length() > 256)
-        {
-            throw new IllegalArgumentException("The Email must has between 6 and 256 characters, inclusive");
-        }
-
-        int at = email.indexOf("@");
-
-        //Valido que solo haya un @, ni mas ni menos
-        if(at == -1 || (at != email.lastIndexOf("@")))
-        {
-            throw new IllegalArgumentException("The Email must contain exactly one @");
-        }
-    }
-
+    /*
     public static Email create(String value, boolean skipValidations)
     {
         if(!skipValidations)
@@ -69,4 +60,5 @@ public class Email
 
         return new Email(value);
     }
+    */
 }

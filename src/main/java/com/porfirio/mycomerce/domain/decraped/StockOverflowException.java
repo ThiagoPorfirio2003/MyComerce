@@ -1,8 +1,9 @@
-package com.porfirio.mycomerce.domain.client.product;
+package com.porfirio.mycomerce.domain.decraped;
 
 import com.porfirio.mycomerce.domain.exceptions.DomainException;
 import lombok.Getter;
 
+/*
 @Getter
 public class StockOverflowException extends DomainException
 {
@@ -16,3 +17,4 @@ public class StockOverflowException extends DomainException
         this.maxLimit = maxLimit;
     }
 }
+*/

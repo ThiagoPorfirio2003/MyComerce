@@ -1,8 +1,9 @@
-package com.porfirio.mycomerce.domain.client.product;
+package com.porfirio.mycomerce.domain.decraped;
 
 import com.porfirio.mycomerce.domain.exceptions.DomainException;
 import lombok.Getter;
 
+/*
 @Getter
 public class StockUnderflowException extends DomainException
 {
@@ -17,3 +18,4 @@ public class StockUnderflowException extends DomainException
         this.minLimit = minLimit;
     }
 }
+*/

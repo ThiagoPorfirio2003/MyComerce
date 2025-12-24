@@ -1,8 +1,12 @@
-package com.porfirio.mycomerce.domain.platform.credential;
+package com.porfirio.mycomerce.domain.decraped;
 
 import com.porfirio.mycomerce.domain.exceptions.DomainException;
+import com.porfirio.mycomerce.domain.platform.credential.CredentialId;
+import com.porfirio.mycomerce.domain.platform.credential.Email;
+import com.porfirio.mycomerce.domain.platform.credential.UserCredentialExceptionIdentifier;
 import lombok.Getter;
 
+/*
 @Getter
 public class UserCredentialDoesNotExistException extends DomainException
 {
@@ -23,3 +27,4 @@ public class UserCredentialDoesNotExistException extends DomainException
         this.identifierType = UserCredentialExceptionIdentifier.ID;
     }
 }
+*/

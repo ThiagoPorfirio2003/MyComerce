@@ -1,4 +1,4 @@
-package com.porfirio.mycomerce.domain.platform.credential;
+package com.porfirio.mycomerce.domain.decraped;
 
 import lombok.AllArgsConstructor;
 

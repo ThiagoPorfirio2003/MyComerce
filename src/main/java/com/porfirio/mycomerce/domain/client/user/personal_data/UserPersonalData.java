@@ -1,8 +1,7 @@
-package com.porfirio.mycomerce.domain.client.user.personaldata;
+package com.porfirio.mycomerce.domain.client.user.personal_data;
 
 import lombok.Getter;
 
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
