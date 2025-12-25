@@ -1,9 +1,6 @@
 package com.porfirio.mycomerce.domain.client.product;
 
 import com.porfirio.mycomerce.domain.exceptions.DomainException;
-import com.porfirio.mycomerce.domain.exceptions.decraped.InvalidStockOperationException;
-import com.porfirio.mycomerce.domain.exceptions.decraped.StockOverflowException;
-import com.porfirio.mycomerce.domain.exceptions.decraped.StockUnderflowException;
 import lombok.Getter;
 
 @Getter
@@ -47,7 +44,7 @@ public class Stock
         this.validateQuantityForOperation(quantity);
         int newAmount = this.amount + quantity;
 
-        this.validateOverflow(newAmount, "");
+        this.validateOverflow(newAmount, this.amount + " + " + quantity + " = " + newAmount + ", but the max limit is " + Stock.MAXIMUM);
 
         this.amount = newAmount;
     }
@@ -57,7 +54,7 @@ public class Stock
         this.validateQuantityForOperation(quantity);
         int newAmount = this.amount - quantity;
 
-        this.validateUnderflow(newAmount);
+        this.validateUnderflow(newAmount, this.amount + " - " + quantity + " = " + newAmount + ", but the min limit is " + Stock.MINIMUM);
 
         this.amount = newAmount;
     }

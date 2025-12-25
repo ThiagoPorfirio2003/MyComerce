@@ -1,34 +1,37 @@
 package com.porfirio.mycomerce.domain.client.product;
 
+import com.porfirio.mycomerce.domain.client.money.Money;
 import lombok.Getter;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Getter
-public class ProductPrice
+public class ProductPrice extends Money
 {
-    private final BigDecimal fullPrice;
-
     public ProductPrice(BigDecimal fullPrice)
     {
-        this.validate(fullPrice);
-
-        this.fullPrice = full;
+        super(fullPrice);
     }
 
-    private void validate(BigDecimal fullPrice)
-    {
-        Objects.requireNonNull(fullPrice, "PRODUCT_PRICE_NULL");
+    @Override
+    protected String getConceptName() {
+        return "PRODUCT_PRICE";
+    }
 
-        if(fullPrice.compareTo(BigDecimal.ZERO) < 0)
-        {
+    @Override
+    protected Money factoryMethod(BigDecimal amount) {
+        return new ProductPrice(amount);
+    }
 
-        }
+    @Override
+    public boolean equals(Object obj) {
+        return obj != null &&
+                (obj instanceof ProductPrice &&
+                        this.getAmount().compareTo(((ProductPrice) obj).getAmount()) == 0);
+    }
 
-        fullPrice = fullPrice.stripTrailingZeros();
-
-        fullPrice
-
+    @Override
+    public int hashCode() {
+        return this.getAmount().hashCode();
     }
 }

@@ -12,9 +12,9 @@ public class DomainException extends RuntimeException
         this.code = code;
     }
 
-    public static DomainException generateNullException(String ENTITY_NAME)
+    public static DomainException generateNullException(String conceptName)
     {
-        return new DomainException("NULL_" + ENTITY_NAME,
-                "The " + ENTITY_NAME + " must not be NULL");
+        return new DomainException("NULL_" + conceptName,
+                "The " + conceptName + " must not be NULL");
     }
 }
